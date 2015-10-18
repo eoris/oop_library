@@ -54,15 +54,15 @@ class Library
   end
 
   def top_three_books
-    hash_with_books_count.sort_by { |x, y| y }.reverse[0..2]
+    top = hash_with_books_count.sort_by {|x, y| y }.reverse[0..2]
+    top.map{|t| t[0]}
   end
 
   def people_ordered_one_of_the_three_most_popular_books
-    orders_array = @orders.map {|i| [i.reader.name, i.book.title] }
-    top = top_three_books.map{|i| i[0]}
-    all_top_orders = orders_array.select{|i| i.include?(top[0]) || i.include?(top[1]) || i.include?(top[2])}
-    count_of_people = all_top_orders.map{|people| people[0]}.uniq.count
-    puts "#{count_of_people} people ordered on of the three most popular books"
+    people = Hash.new(0)
+    @orders.each{|order| people[order.reader.name] += 1 if top_three_books.include?(order.book.title)}
+    people.keys.count
+    puts "#{people.keys.count} people ordered one of the three most popular books"
   end
 
   def save_to_file
