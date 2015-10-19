@@ -65,8 +65,16 @@ class Library
     puts "#{people.keys.count} people ordered one of the three most popular books"
   end
 
-  def save_to_file
-    File.open("library.yml", "a+") {|f| f.write self.to_yaml }
+  def save_to_file(file)
+    File.open(file, "w"){|f| f.write self.to_yaml }
+  end
+
+  def load_from_file(file)
+    @load = File.open(file){|f| YAML::load(f) }
+    @books   = @load.books
+    @authors = @load.authors
+    @readers = @load.readers
+    @orders  = @load.orders
   end
 
 end

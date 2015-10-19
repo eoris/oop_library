@@ -1,0 +1,139 @@
+--- !ruby/object:Library
+books:
+- &4 !ruby/object:Book
+  title: A Brief History of Time
+  author: &1 !ruby/object:Author
+    name: Stephen Hawking
+    biography: born 8 January 1942
+- &10 !ruby/object:Book
+  title: The Universe in a Nutshell
+  author: *1
+- &11 !ruby/object:Book
+  title: The Selfish Gene
+  author: &2 !ruby/object:Author
+    name: Richard Dawkins
+    biography: born 26 March 1941
+- &8 !ruby/object:Book
+  title: The God Delusion
+  author: *2
+- &12 !ruby/object:Book
+  title: 'Surely You''re Joking, Mr. Feynman!: Adventures of a Curious Character'
+  author: &3 !ruby/object:Author
+    name: Richard Feynman
+    biography: May 11, 1918 – February 15, 1988
+authors:
+- *1
+- *2
+- *3
+readers:
+- &5 !ruby/object:Reader
+  name: Egor
+  email: mail@email.com
+  city: Dnipropetrovsk
+  street: Gagarina str
+  house: '13'
+- &6 !ruby/object:Reader
+  name: JS Denton
+  email: bionicman@unatco.com
+  city: NY
+  street: Hell's Kitchen
+  house: '8'
+- &7 !ruby/object:Reader
+  name: Vasya
+  email: vasvas@gmail.com
+  city: Kyiv
+  street: Shevchenko str
+  house: '9'
+- &13 !ruby/object:Reader
+  name: Anonymous
+  email: anon@blacknet.com
+  city: World
+  street: Wide
+  house: Web
+- &9 !ruby/object:Reader
+  name: Cooper
+  email: bazinga@gmail.com
+  city: Pasadena
+  street: Paramount Comedy
+  house: '1'
+orders:
+- !ruby/object:Order
+  book: *4
+  reader: *5
+  date: 2015-10-19 11:58:07.287003915 +03:00
+- !ruby/object:Order
+  book: *4
+  reader: *6
+  date: 2015-10-19 11:58:07.288069572 +03:00
+- !ruby/object:Order
+  book: *4
+  reader: *7
+  date: 2015-10-19 11:58:07.289087676 +03:00
+- !ruby/object:Order
+  book: *8
+  reader: *6
+  date: 2015-10-19 11:58:07.290095997 +03:00
+- !ruby/object:Order
+  book: *8
+  reader: *7
+  date: 2015-10-19 11:58:07.291347650 +03:00
+- !ruby/object:Order
+  book: *8
+  reader: *9
+  date: 2015-10-19 11:58:07.292533155 +03:00
+- !ruby/object:Order
+  book: *10
+  reader: *6
+  date: 2015-10-19 11:58:07.294122665 +03:00
+- !ruby/object:Order
+  book: *11
+  reader: *6
+  date: 2015-10-19 11:58:07.295493991 +03:00
+- !ruby/object:Order
+  book: *12
+  reader: *5
+  date: 2015-10-19 11:58:07.296701004 +03:00
+- !ruby/object:Order
+  book: *12
+  reader: *6
+  date: 2015-10-19 11:58:07.297784956 +03:00
+- !ruby/object:Order
+  book: *12
+  reader: *7
+  date: 2015-10-19 11:58:07.298796436 +03:00
+- !ruby/object:Order
+  book: *12
+  reader: *9
+  date: 2015-10-19 11:58:07.299779240 +03:00
+- !ruby/object:Order
+  book: *12
+  reader: *13
+  date: 2015-10-19 11:58:07.300764053 +03:00
+- !ruby/object:Order
+  book: *11
+  reader: *5
+  date: 2015-10-19 11:58:07.301632793 +03:00
+- !ruby/object:Order
+  book: *11
+  reader: *9
+  date: 2015-10-19 11:58:07.302551782 +03:00
+- !ruby/object:Order
+  book: *10
+  reader: *9
+  date: 2015-10-19 11:58:07.303501380 +03:00
+- !ruby/object:Order
+  book: *10
+  reader: *13
+  date: 2015-10-19 11:58:07.304439701 +03:00
+- !ruby/object:Order
+  book: *10
+  reader: *7
+  date: 2015-10-19 11:58:07.305355436 +03:00
+- !ruby/object:Order
+  book: *4
+  reader: *5
+  date: 2015-10-19 11:58:07.306256801 +03:00
+- !ruby/object:Order
+  book: *4
+  reader: *9
+  date: 2015-10-19 11:58:07.307132665 +03:00
