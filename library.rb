@@ -39,7 +39,7 @@ class Library
     names = @orders.map {|i| i.reader.name }
     counts = Hash.new(0)
     names.each {|name| counts[name] += 1 }
-    counts.each {|reader, count| puts "One of the most active readers #{reader} ordered #{count} books" if count == counts.values.max }
+    counts.select {|reader, count| reader if count == counts.values.max }
   end
 
   def hash_with_books_count
@@ -50,7 +50,7 @@ class Library
   end
 
   def most_popular_books
-    hash_with_books_count.each {|title, times| puts "One of the most popular books, '#{title}', was ordered #{times} times" if times == hash_with_books_count.values.max }
+    hash_with_books_count.select {|title, times| title if times == hash_with_books_count.values.max }
   end
 
   def top_three_books
@@ -62,7 +62,6 @@ class Library
     people = Hash.new(0)
     @orders.each{|order| people[order.reader.name] += 1 if top_three_books.include?(order.book.title)}
     people.keys.count
-    puts "#{people.keys.count} people ordered one of the three most popular books"
   end
 
   def save_to_file(file)
