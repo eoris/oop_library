@@ -64,7 +64,7 @@ class Library
   end
 
   def load_from_file(file)
-    load = File.open(file){|f| YAML::load(f) }
+    load = YAML.load_file(file)
     @books   = load.books
     @authors = load.authors
     @readers = load.readers
