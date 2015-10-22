@@ -4,11 +4,6 @@ require_relative 'reader'
 require_relative 'order'
 require 'yaml'
 
-# Write program that determines:
-# Who often takes the books
-# What is the most popular book
-# How many people ordered one of the three most popular books
-
 class Library
   attr_accessor :books, :authors, :readers, :orders
 
@@ -69,11 +64,11 @@ class Library
   end
 
   def load_from_file(file)
-    @load = File.open(file){|f| YAML::load(f) }
-    @books   = @load.books
-    @authors = @load.authors
-    @readers = @load.readers
-    @orders  = @load.orders
+    load = File.open(file){|f| YAML::load(f) }
+    @books   = load.books
+    @authors = load.authors
+    @readers = load.readers
+    @orders  = load.orders
   end
 
 end
