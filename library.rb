@@ -7,11 +7,15 @@ require 'yaml'
 class Library
   attr_accessor :books, :authors, :readers, :orders
 
-  def initialize(books=[], authors=[], readers=[], orders=[])
+  def initialize(books = [], authors = [], readers = [], orders = [])
     @books    = books
     @authors  = authors
     @readers  = readers
     @orders   = orders
+  end
+
+  def to_s
+    "Welcome to our Library!"
   end
 
   def add_book(book)
@@ -31,36 +35,36 @@ class Library
   end
 
   def often_takes_the_books
-    names = @orders.map {|i| i.reader.name }
+    names = @orders.map { |i| i.reader.name }
     counts = Hash.new(0)
-    names.each {|name| counts[name] += 1 }
-    counts.select {|reader, count| reader if count == counts.values.max }
+    names.each { |name| counts[name] += 1 }
+    counts.select { |reader, count| reader if count == counts.values.max }
   end
 
   def hash_with_books_count
-    titles = @orders.map {|b| b.book.title }
+    titles = @orders.map { |b| b.book.title }
     counts = Hash.new(0)
-    titles.each {|title| counts[title] += 1 }
+    titles.each { |title| counts[title] += 1 }
     counts
   end
 
   def most_popular_books
-    hash_with_books_count.select {|title, times| title if times == hash_with_books_count.values.max }
+    hash_with_books_count.select { |title, times| title if times == hash_with_books_count.values.max }
   end
 
   def top_three_books
     top = hash_with_books_count.sort_by {|x, y| y }.reverse[0..2]
-    top.map{|t| t[0]}
+    top.map { |t| t[0] }
   end
 
   def people_ordered_one_of_the_three_most_popular_books
     people = Hash.new(0)
-    @orders.each{|order| people[order.reader.name] += 1 if top_three_books.include?(order.book.title)}
+    @orders.each { |order| people[order.reader.name] += 1 if top_three_books.include?(order.book.title) }
     people.keys.count
   end
 
   def save_to_file(file)
-    File.open(file, "w"){|f| f.write self.to_yaml }
+    File.open(file, "w"){ |f| f.write self.to_yaml }
   end
 
   def load_from_file(file)
@@ -73,11 +77,11 @@ class Library
 
 end
 
-reader1 = Reader.new("Egor", "mail@email.com", "Dnipropetrovsk", "Gagarina str", "13")
-reader2 = Reader.new("JS Denton", "bionicman@unatco.com", "NY", "Hell's Kitchen", "8")
-reader3 = Reader.new("Vasya", "vasvas@gmail.com", "Kyiv", "Shevchenko str", "9")
-reader4 = Reader.new("Anonymous", "anon@blacknet.com", "World", "Wide", "Web")
-reader5 = Reader.new("Cooper", "bazinga@gmail.com", "Pasadena", "Paramount Comedy", "1")
+reader1 = Reader.new("Egor", "Dnipropetrovsk", "Gagarina str", "13", "mail@email.com")
+reader2 = Reader.new("JS Denton", "NY", "Hell's Kitchen", "8", "bionicman@unatco.com")
+reader3 = Reader.new("Vasya", "Kyiv", "Shevchenko str", "9", "vasvas@gmail.com")
+reader4 = Reader.new("Anonymous", "World", "Wide", "Web", "anon@blacknet.com")
+reader5 = Reader.new("Cooper", "Pasadena", "Paramount Comedy", "1", "bazinga@gmail.com")
 
 hawking = Author.new("Stephen Hawking", "born 8 January 1942")
 dawkins = Author.new("Richard Dawkins", "born 26 March 1941")
