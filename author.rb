@@ -1,7 +1,7 @@
 class Author
   attr_accessor :name, :biography
 
-  def initialize(name, biography="")
+  def initialize(name, biography = '')
     @name      = name
     @biography = biography
   end
@@ -9,5 +9,4 @@ class Author
   def to_s
     "Author: #{@name}\nBiography: #{@biography}"
   end
-
 end

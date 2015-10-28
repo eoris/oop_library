@@ -9,5 +9,4 @@ class Book
   def to_s
     "Title: '#{@title}'\nAuthor: #{@author.name}"
   end
-
 end

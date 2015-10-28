@@ -1,7 +1,7 @@
 class Reader
   attr_accessor :name, :city, :street, :house, :email
 
-  def initialize(name, city, street, house, email = "")
+  def initialize(name, city, street, house, email = '')
     @name   = name
     @city   = city
     @street = street
@@ -12,5 +12,4 @@ class Reader
   def to_s
     "Name: #{@name}\nE-mail: #{@email}\nCity: #{@city}\nStreet: #{@street}\nHouse: № #{@house}"
   end
-
 end

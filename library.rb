@@ -15,7 +15,7 @@ class Library
   end
 
   def to_s
-    "Welcome to our Library!"
+    'Welcome to our Library!'
   end
 
   def add_book(book)
@@ -53,7 +53,7 @@ class Library
   end
 
   def top_three_books
-    top = hash_with_books_count.sort_by {|x, y| y }.reverse[0..2]
+    top = hash_with_books_count.sort_by { |_x, y| y }.reverse[0..2]
     top.map { |t| t[0] }
   end
 
@@ -64,7 +64,7 @@ class Library
   end
 
   def save_to_file(file)
-    File.open(file, "w"){ |f| f.write self.to_yaml }
+    File.open(file, 'w') { |f| f.write self.to_yaml }
   end
 
   def load_from_file(file)
@@ -74,23 +74,22 @@ class Library
     @readers = load.readers
     @orders  = load.orders
   end
-
 end
 
-reader1 = Reader.new("Egor", "Dnipropetrovsk", "Gagarina str", "13", "mail@email.com")
-reader2 = Reader.new("JS Denton", "NY", "Hell's Kitchen", "8", "bionicman@unatco.com")
-reader3 = Reader.new("Vasya", "Kyiv", "Shevchenko str", "9", "vasvas@gmail.com")
-reader4 = Reader.new("Anonymous", "World", "Wide", "Web", "anon@blacknet.com")
-reader5 = Reader.new("Cooper", "Pasadena", "Paramount Comedy", "1", "bazinga@gmail.com")
+reader1 = Reader.new('Egor', 'Dnipropetrovsk', 'Gagarina str', '13', 'mail@email.com')
+reader2 = Reader.new('JS Denton', 'NY', "Hell's Kitchen", '8', 'bionicman@unatco.com')
+reader3 = Reader.new('Vasya', 'Kyiv', 'Shevchenko str', '9', 'vasvas@gmail.com')
+reader4 = Reader.new('Anonymous', 'World', 'Wide', 'Web', 'anon@blacknet.com')
+reader5 = Reader.new('Cooper', 'Pasadena', 'Paramount Comedy', '1', 'bazinga@gmail.com')
 
-hawking = Author.new("Stephen Hawking", "born 8 January 1942")
-dawkins = Author.new("Richard Dawkins", "born 26 March 1941")
-faynman = Author.new("Richard Feynman", "May 11, 1918 – February 15, 1988")
+hawking = Author.new('Stephen Hawking', 'born 8 January 1942')
+dawkins = Author.new('Richard Dawkins', 'born 26 March 1941')
+faynman = Author.new('Richard Feynman', 'May 11, 1918 – February 15, 1988')
 
-book1 = Book.new("A Brief History of Time", hawking)
-book2 = Book.new("The Universe in a Nutshell", hawking)
-book3 = Book.new("The Selfish Gene", dawkins)
-book4 = Book.new("The God Delusion", dawkins)
+book1 = Book.new('A Brief History of Time', hawking)
+book2 = Book.new('The Universe in a Nutshell', hawking)
+book3 = Book.new('The Selfish Gene', dawkins)
+book4 = Book.new('The God Delusion', dawkins)
 book5 = Book.new("Surely You're Joking, Mr. Feynman!: Adventures of a Curious Character", faynman)
 
 order1 = Order.new(book1, reader1)
@@ -156,3 +155,8 @@ library.add_order(order20)
 library.often_takes_the_books
 library.most_popular_books
 library.people_ordered_one_of_the_three_most_popular_books
+
+puts order1
+puts reader1
+puts book1
+puts hawking
