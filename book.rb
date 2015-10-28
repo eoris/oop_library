@@ -7,7 +7,7 @@ class Book
   end
 
   def to_s
-    "Title: '#{@title}'. Author: #{@author}"
+    "Title: '#{@title}'\nAuthor: #{@author.name}"
   end
 
 end

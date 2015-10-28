@@ -10,7 +10,7 @@ class Reader
   end
 
   def to_s
-    "Name: #{@name},\ne-mail: #{@email},\nCity: #{@city},\nStreet: #{@street},\nHouse: № #{@house}"
+    "Name: #{@name}\nE-mail: #{@email}\nCity: #{@city}\nStreet: #{@street}\nHouse: № #{@house}"
   end
 
 end

@@ -7,7 +7,7 @@ class Author
   end
 
   def to_s
-    "Author: #{@name}. Biography: #{@biography}"
+    "Author: #{@name}\nBiography: #{@biography}"
   end
 
 end
